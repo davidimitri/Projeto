@@ -1,0 +1,25 @@
+def visualizar_por_cor():
+    cor_desejada = input("Digite a cor que deseja visualizar: ")
+    livros_encontrados = False
+
+    arquivo = open("livros.txt", "r")
+    for linha in arquivo:
+        nome, autor, categoria, custo, cor = linha.strip().split(',')
+        if cor == cor_desejada: 
+            print(f"Nome: {nome}, Autor: {autor}, Categoria: {categoria}, Custo: R${custo}, Cor: {cor}")
+            livros_encontrados = True
+
+    arquivo.close()
+
+    if not livros_encontrados:
+        print(f"Nenhum livro encontrado na cor '{cor_desejada}'.")
+
+
+
+def excluir_livro(gasto_total):
+    nome_excluir = input("Digite o nome do livro que deseja excluir: ")
+    livro_excluido = False
+
+    arquivo = open("livros.txt", "r")
+    linhas = arquivo.readlines()
+    arquivo.close()
