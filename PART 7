@@ -1,0 +1,21 @@
+def visualizar_livros():
+    arquivo = open("livros.txt", "r")
+    for linha in arquivo:
+        nome, autor, categoria, custo, cor = linha.strip().split(',')
+        print(f"Nome: {nome}, Autor: {autor}, Categoria: {categoria}, Custo: R${custo}, Cor: {cor}")
+    arquivo.close()
+
+def menu():
+    gasto_total = 0
+    while True:
+        print("\n -----Menu-----")
+        print("1. Cadastrar Livro")
+        print("2. Visualizar Livros")
+        print("3. Visualizar por Categoria")
+        print("4. Atualizar Livro")
+        print("5. Excluir Livro")
+        print("6. Gasto Total")
+        print("7. Visualizar por Cor")  
+        print("8. Sair")
+
+        opcao = input("Digite a opção desejada: ")
