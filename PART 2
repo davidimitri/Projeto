@@ -1,0 +1,22 @@
+def visualizar_livros():
+    arquivo = open("livros.txt", "r")
+    for linha in arquivo:
+        nome, autor, categoria, custo, cor  = linha.strip().split(',')
+        print(f"Nome: {nome}, Autor: {autor}, Categoria: {categoria}, Custo: R${custo}, {cor}")
+    arquivo.close()
+
+def visualizar_por_categoria():
+    categoria_desejada = input("Digite a categoria que deseja visualizar: ")
+    livros_encontrados = False
+
+    arquivo = open("livros.txt", "r")
+    for linha in arquivo:
+        nome, autor, categoria, custo, cor = linha.strip().split(',')
+        if categoria == categoria_desejada:
+            print(f"Nome: {nome}, Autor: {autor}, Categoria: {categoria}, Custo: R${custo}, {cor}")
+            livros_encontrados = True
+
+    arquivo.close()
+
+    if not livros_encontrados:
+        print(f"Nenhum livro encontrado na categoria '{categoria_desejada}'.")
