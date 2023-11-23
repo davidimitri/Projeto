@@ -1,0 +1,22 @@
+import os
+def calcular_gasto_total():
+    gasto_total = 0
+    arquivo = open("livros.txt", "r")
+    for linha in arquivo:
+        _, _, _, custo, _, = linha.strip().split(',')
+        gasto_total += float(custo)
+    arquivo.close()
+    return gasto_total
+
+def cadastrar_livro(gasto_total):
+    nome = input("Digite o nome do livro: ")
+    autor = input("Digite o nome do autor: ")
+    categoria = input("Digite a categoria do livro: ")
+    custo = float(input("Digite o valor do livro: "))
+    cor = input("Digite a cor do livro: ") 
+
+    arquivo = open("livros.txt", "a")
+    arquivo.write(f"{nome},{autor},{categoria},{custo},{cor}\n")
+    arquivo.close()
+
+    return gasto_total + custo
