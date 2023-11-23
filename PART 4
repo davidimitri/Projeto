@@ -1,0 +1,11 @@
+for linha in linhas:
+        _, _, _, custo, _, = linha.strip().split(',')
+        temp_gasto_total += float(custo)
+    arquivo.close()
+
+    if livro_atualizado:
+        print("Livro atualizado com sucesso!")
+        return temp_gasto_total
+    else:
+        print("Livro não encontrado.")
+        return gasto_total
