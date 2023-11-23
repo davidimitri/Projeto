@@ -1,0 +1,15 @@
+arquivo = open("livros.txt", "w")
+    for linha in linhas:
+        nome, _, _, custo, _, = linha.strip().split(',')
+        if nome != nome_excluir:
+            arquivo.write(linha)
+        else:
+            livro_excluido = True
+
+    if livro_excluido:
+        custo_excluido = float(custo)
+        print("Livro excluído com sucesso!")
+        return gasto_total - custo_excluido
+    else:
+        print("Livro não encontrado.")
+        return gasto_total
