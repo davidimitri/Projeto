@@ -1,0 +1,21 @@
+def atualizar_livro(gasto_total):
+    nome_atualizar = input("Digite o nome do livro que deseja atualizar: ")
+    livro_atualizado = False
+    temp_gasto_total = 0
+
+    arquivo = open("livros.txt", "r")
+    linhas = arquivo.readlines()
+    arquivo.close()
+
+    arquivo = open("livros.txt", "w")
+    for linha in linhas:
+        nome, autor, categoria, custo, cor = linha.strip().split(',')
+        if nome == nome_atualizar:
+            autor = input("Digite o novo nome do autor: ")
+            categoria = input("Digite a nova categoria do livro: ")
+            novo_custo = float(input("Digite o novo valor do livro: "))
+            cor = input("Digite a nova cor do livro: ")
+            linha = f"{nome},{autor},{categoria},{novo_custo}, {cor}\n"
+            temp_gasto_total += novo_custo
+            livro_atualizado = True
+        arquivo.write(linha)
